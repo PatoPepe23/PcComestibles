@@ -6,6 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello World</h1>
+    <img src="https://http.cat/404" alt="">
 </body>
 </html>
