@@ -1,0 +1,159 @@
+header{
+    display: flex;
+    height: 70px;
+    margin: 0;
+    padding: 0;
+}
+
+.header-drop-left{
+    border: none;
+    background-color: transparent;
+    transition: 200ms;
+    padding: 2%;
+    border-radius: 4px;
+    margin-left: 5%;
+}
+
+.header-drop-left:hover{
+    background-color: #F2F2F2;
+}
+
+.fixed{
+    z-index: 2;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: white;
+    border-bottom: solid 1px black;
+}
+
+header nav{
+    display: flex;
+    width: 100%;
+    border-bottom: solid 1px black;
+    height: 40px;
+    z-index: 1;
+    position: absolute;
+    top: 70px;
+}
+
+#search{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+#headerForm{
+    width: 100%;
+}
+
+#headerSearcher{
+    display: flex;
+    justify-content: space-between;
+    height: 48px;
+    width: 100%;
+    border-radius: 0 4px 4px 0;
+    border: #C2C2C2 solid 1px;
+    transition-duration: 0.33s;
+}
+
+#headerSearcher:hover{
+    border: black solid 1px;
+}
+
+#headerSearcher input{
+    border: transparent;
+    width: 90%;
+}
+
+#headerSearcher input:focus{
+    outline: none;
+}
+
+
+#profile-buttons{
+    display: flex;
+    align-items: center;
+}
+
+#profile-buttons a{
+    margin-left: 10%;
+}
+
+#profile-buttons a:hover{
+    cursor: pointer;
+}
+
+#headerSearchFilter{
+    display: flex;
+    border: solid 1px #C2C2C2;
+    border-right: transparent;
+    border-radius: 4px 0 0 4px;
+    height: 48px;
+    padding-left: 2%;
+}
+
+#headerSearchFilter:hover{
+    cursor: pointer;
+}
+
+#headerSearchFilter:focus{
+    outline: none;
+}
+
+.normal-button{
+    display: flex;
+    align-items: center;
+    height: 48px;
+    width: max-content;
+    background-color: transparent;
+    border: none;
+    border-radius: 4px;
+    transition-duration: 0.5s;
+    text-decoration: none;
+    color: black;
+}
+
+.normal-button:hover{
+    background-color: #F2F2F2;
+}
+
+.normal-button p{
+    margin: 0;  
+}
+
+.normal-button svg{
+    min-height: 24px;
+    max-height: 40px;
+}
+
+.header-left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-svg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    min-height: 40%;
+    
+}
+
+.search-svg svg{
+    min-height: 60%;
+    height: 60%;
+    transition: 200ms   ;
+}
+
+.search-svg svg:hover{
+    transform: scale(1.1);
+}
+
+#header-nav a{
+    display: flex;
+    height: 38px;
+}

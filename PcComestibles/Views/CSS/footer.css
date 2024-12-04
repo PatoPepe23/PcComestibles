@@ -1,0 +1,91 @@
+#footer-container{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 40PX;
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
+}
+
+.footer-top{
+    width: 85%;
+}
+
+.footer-div{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.footer-a{
+    display: flex;
+    font-size: 16PX;
+    width: 100%;
+    text-decoration: none;
+    color: black;
+    padding: 5%;
+    max-height: 40px;
+    align-items: center;
+}
+
+.footer-a:hover{
+    background-color: #F2F2F2;
+}
+
+.footer-a img{
+    height: 50px;
+}
+
+#footer-bottom{
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#footer-bottom p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-dropDown button{
+    width: 100%;
+}
+
+.dropDown{
+    display: flex;
+    background-color: transparent;
+    border: transparent;
+    justify-content: start;
+    font-weight: bold;
+    height: 40px;
+}
+
+.dropDown:hover{
+    background-color: #F2F2F2;
+}
+
+.close{     
+    max-height: 56px;
+    transition: max-height 1s;
+    overflow: hidden;
+}
+
+.open{
+    max-height: 1000px;
+}
+
+.hide{
+    max-height: 0;
+    transition: max-height 1s;
+    width: 100%;
+}
+
+.hide a{
+    display: flex;
+    justify-content: start;
+}
+
+.show{
+    max-height: 1000px;
+}

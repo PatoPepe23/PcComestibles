@@ -1,114 +1,199 @@
 *{
     margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-/*Header*/
-
-#search{
-    display: flex;
-    justify-content: left;
-    align-items: center;
+.border{
+    border: solid 1px black;
 }
-
-#headerForm{
-    width: 100%;
-}
-
-#headerSearcher{
-    display: flex;
-    height: 48px;
-    width: 100%;
-    border-radius: 0 4px 4px 0;
-    border: #C2C2C2 solid 1px;
-    transition-duration: 0.33s;
-}
-
-#headerSearcher:hover{
-    border: black solid 1px;
-}
-
-#headerSearcher input{
-    border: transparent;
-    width: 90%;
-}
-
-#searchButton{
-    display: flex;
-    align-items: center;
-    width: 10%;
-}
-
-#searchButton:hover{
-    zoom: 1%;
-}
-
-#profile-buttons{
-    display: flex;
-    align-items: center;
-}
-
-#profile-buttons button{
-    margin-left: 10%;
-}
-
-#searchButton button{
-    border: transparent;
-    background-color: transparent;
-    width: 100%;
-}
-
-#headerSearchFilter{
-    display: flex;
-    border: solid 1px #C2C2C2;
-    border-right: transparent;
-    border-radius: 4px 0 0 4px;
-    height: 48px;
-    padding-left: 2%;
-}
-
-#headerSearchFilter:hover{
-    cursor: pointer;
-}
-
-.normal-button{
-    height: 48px;
-    width: auto;
-    background-color: transparent;
-    border: none;
-    border-radius: 4px;
-    transition-duration: 0.5s;
-}
-
-.normal-button:hover{
-    background-color: #F2F2F2;
-}
-
 
 /*Body*/
 
+.oferta{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFC04E;
+    height: 15rem;
+    border-radius: 15px;
+}
+
+.oferta svg{
+    max-height: 120px;
+}
+
+.oferta img{
+    max-height: 150px;
+}
+
+.oferta-model-2{
+    background-color: #CC4D00;
+}
 
 
-/*Footer*/
+.oferta-2{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
 
-footer{
+#oferta-2-title{
+    display: flex;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.oferta-3{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#oferta-3-title{
+    display: flex;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+body{
+    margin-top: 50px;
+}
+
+.container{
+    overflow: hidden;
+}
+
+@media (min-width: 1400px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 1560px !important;
+    }
+}
+
+.mainSlider-1{
+    margin-left: 0px;
+    transition: 1s;
+    gap: 1.5rem;
+}
+
+.sliderButton{
+    background-color: white;
+    border: solid 1px #C2C2C2;
+    border-radius: 4px;
+    top: 35%;
+}
+
+#sliderRight{
+    position: absolute;
+    right: 0;
+    width: 50px;
+    height: 50px;
+}
+
+#sliderLeft{
+    position: absolute;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    rotate: 180deg;
+}
+
+#sliderLeft[disabled]{
+    display: none;
+}
+
+.mainSliderContainer{
+    position: relative;
+}
+
+.card{
+    text-decoration: none;
+    width: 240px;
+    border: none;
+}
+
+.cardButtons{
+    display: flex;
+    gap: 0.3rem;
+}
+
+.promotion{
+    border: solid 1px #CC4D00;
+    background: linear-gradient(to right, #FF6000, #FFC04E);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-radius: 4px;
+    padding: 0.1rem 0.3rem;
+}
+
+.trending {
+    border: none;
+    color: white;
+    background-color: #FF6000;
+    border-radius: 4px;
+    padding: 0.1rem 0.3rem;
+}
+
+.card-prices{
+    display: flex;
+    gap: 0.5rem;
+}
+
+.card-price{
+    color: #BF0019;
+    font-weight: bold;
+}
+
+.card-old-price{
+    color: #C2C2C2;
+    text-decoration: line-through;
+}
+
+.free-deliver{
+    display: flex;
+}
+
+.free-deliver img{
+    height: 12px;
+    margin-top: 0.25rem;
+}
+
+.free-deliver-text{
+    color: #118000;
+    font-size: 12px;
+}
+
+.cardImage{
     display: flex;
     justify-content: center;
-    border-top: solid 1px black;
-    border-bottom: solid 1px black;
+    margin-bottom: 5%;
 }
 
-.footer-div{
+.cardImage img{
+    border-radius: 8px;
+    height: 150px;
+    width: 150px;
+}
+
+.trends{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
     flex-direction: column;
-    align-items: start;
-}
-
-.footer-a{
     text-decoration: none;
-    color: #C2C2C2;
-    padding-bottom: 5%;
+    color: black;
+    font-weight: bold;
 }
 
-.footer-a img{
-    height: 50px;
+.internal-trends{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #C2C2C2;
+    height: 80%;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.internal-trends img{
+    height: 80%;
+    width: 80%;
 }

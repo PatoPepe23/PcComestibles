@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button id="getUsers">Pedir</button>
+    <button id="addUser">Añadir</button>
+
+    <script>
+        const API_URL = 'http://localhost:2300/API/api.php';
+
+        async function getUsers(){
+           const respuesta = await fetch(API_URL); 
+           const datos = await respuesta.json();
+
+           console.log(datos.user);
+        }
+
+        document.getElementById('getUsers').addEventListener('click', getUsers);
+        document.getElementById('addUser').addEventListener('click', addUser);
+
+        async function addUser() {
+            const datos = {
+                    "name": "Pedro",
+                    "password": "1234"
+                };
+
+            const respuesta = await fetch(API_URL, { 
+
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(datos)
+            });
+            const datosPeticion = await respuesta.json();
+            console.log(datosPeticion.data);
+        }
+
+    </script>
+
+</body>
+</html>

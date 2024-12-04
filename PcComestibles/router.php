@@ -7,14 +7,16 @@ class Router{
     static $routerUrls = [
         '/' => ['controller' => 'main', 'action' => 'index'],
         '/menu' => ['controller' => 'menu', 'action' => 'showMenu'],
-        '/error' => ['controller' => 'catError', 'action' => 'error404']
+        '/error' => ['controller' => 'catError', 'action' => 'error404'],
+        '/login' => ['controller' => 'login', 'action' => 'loginView'],
+        '/login/revision' => ['controller' => 'login', 'action' => 'login']
     ];
 
-    public static function getView($url){
+    public static function getView($url, $method){
         $splitUrl = parse_url($url);
 
         $urlPath = null;
-        if (isset(self::$routerUrls[$splitUrl['path']])) {  
+        if (isset(self::$routerUrls[$splitUrl['path']])) { 
             $urlPath = self::$routerUrls[$splitUrl['path']];
         } else{
             echo('location: Views/main/error.php');

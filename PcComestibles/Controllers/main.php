@@ -5,11 +5,17 @@ include_once("Config/parameters.php");
 class main{
     
     public function index(){
+        include_once('Models/DAO.php');
+
         $view = "Views/main/mainpage.php";
         $header = defauldHeader;
         $footer = defauldFooter;
         $title = "Home";
         $result = 0;
+
+        $products = [];
+
+        $products = DataBase::createProducts();
 
         include_once("Views/main.php");
     }

@@ -1,60 +1,133 @@
 <footer>
-    <div class="container p-5 m-0">
-        <div class="row">
+    <div id="footer-container">
+        <!--Normal Footer--->
+        <div class="row row-cols-2 p-5 m-0 footer-top d-none d-lg-flex">
             <div class="col-2 footer-div">
-                <a class="footer-a"><strong>Por que comprar</strong></a>
-                <a class="footer-a">Como comprar</a>
-                <a class="footer-a">Formas de pago</a>
-                <a class="footer-a">Gastos de envio</a>
-                <a class="footer-a">Cupones descuento</a>
-                <a class="footer-a">Preguntas frecuentes</a>
-                <a class="footer-a">Opiniones de clientes</a>
-                <a class="footer-a">Targeta regalo</a>
+                <p><strong>Por que comprar</strong></p>
+                <a class="footer-a" href="">Como comprar</a>
+                <a class="footer-a" href="">Formas de pago</a>
+                <a class="footer-a" href="">Gastos de envio</a>
+                <a class="footer-a" href="">Cupones descuento</a>
+                <a class="footer-a" href="">Preguntas frecuentes</a>
+                <a class="footer-a" href="">Opiniones de clientes</a>
+                <a class="footer-a" href="">Targeta regalo</a>
             </div>
             <div class="col-2 footer-div">
-                <a class="footer-a"><strong>Quienes somos</strong></a>
-                <a class="footer-a">Quienes somos</a>
-                <a class="footer-a">Compromisos</a>
-                <a class="footer-a">Nuestras tiendas</a>
-                <a class="footer-a">Nuestras marcas</a>
-                <a class="footer-a">Condiciones de compra</a>
-                <a class="footer-a">Afiliados</a>
-                <a class="footer-a">Aviso legal</a>
-                <a class="footer-a">Privacidad</a>
-                <a class="footer-a">Condiciones Generales Marketing</a>
+                <p><strong>Quienes somos</strong></p>
+                <a class="footer-a" href="">Quienes somos</a>
+                <a class="footer-a" href="">Compromisos</a>
+                <a class="footer-a" href="">Nuestras tiendas</a>
+                <a class="footer-a" href="">Nuestras marcas</a>
+                <a class="footer-a" href="">Condiciones de compra</a>
+                <a class="footer-a" href="">Afiliados</a>
+                <a class="footer-a" href="">Aviso legal</a>
+                <a class="footer-a" href="">Privacidad</a>
+                <a class="footer-a" href="">Condiciones Generales Marketing</a>
             </div>
             <div class="col-2 footer-div">
-                <a class="footer-a"><strong>Contactar</strong></a>
-                <a class="footer-a">Contacto y Ayuda</a>
-                <a class="footer-a">Devoluciones y Garantias</a>
-                <a class="footer-a">Wiki PcComestibles</a>
-                <a class="footer-a">Opina y Gana</a>
-                <a class="footer-a">Publicidad</a>
-                <a class="footer-a">Trabaja con nosotros</a>
-                <a class="footer-a">Canal etico</a>
-                <a class="footer-a">Politica de cookies</a>
+                <p><strong>Contactar</strong></p>
+                <a class="footer-a" href="">Contacto y Ayuda</a>
+                <a class="footer-a" href="">Devoluciones y Garantias</a>
+                <a class="footer-a" href="">Wiki PcComestibles</a>
+                <a class="footer-a" href="">Opina y Gana</a>
+                <a class="footer-a" href="">Publicidad</a>
+                <a class="footer-a" href="">Trabaja con nosotros</a>
+                <a class="footer-a" href="">Canal etico</a>
+                <a class="footer-a" href="">Politica de cookies</a>
             </div>
             <div class="col-2 footer-div">
-                <a class="footer-a"><strong>Otros</strong></a>
-                <a class="footer-a">Replay</a>
-                <a class="footer-a">Black Friday</a>
-                <a class="footer-a">PcDays</a>
-                <a class="footer-a">Concurso</a>
-                <a class="footer-a">Responsabilidad Social</a>
-                <a class="footer-a">Programa de mbajadores</a>
+                <p><strong>Otros</strong></p>
+                <a class="footer-a" href="">Replay</a>
+                <a class="footer-a" href="">Black Friday</a>
+                <a class="footer-a" href="">PcDays</a>
+                <a class="footer-a" href="">Concurso</a>
+                <a class="footer-a" href="">Responsabilidad Social</a>
+                <a class="footer-a" href="">Programa de mbajadores</a>
             </div>
             <div class="col-2 footer-div">
-                <a class="footer-a"><strong>Comuidad</strong></a>
-                <a class="footer-a"><img src="/Views/images/PcComestibles-Simple.png">Blog</a>
-                <a class="footer-a"><img src="/Views/images/PcComestibles-Simple.png">Instagram</a>
-                <a class="footer-a"><img src="/Views/images/PcComestibles-Simple.png">Twitter</a>
-                <a class="footer-a"><img src="/Views/images/PcComestibles-Simple.png">Facebook</a>
-                <a class="footer-a"><img src="/Views/images/PcComestibles-Simple.png">Telegram</a>
-                <a class="footer-a"><img src="/Views/images/PcComestibles-Simple.png">Youtube</a>
-                <a class="footer-a"><img src="/Views/images/PcComestibles-Simple.png">TikTok</a>
-                <a class="footer-a"><img src="/Views/images/PcComestibles-Simple.png">Twitch</a>
+                <p><strong>Comuidad</strong></p>
+                <a class="footer-a" href=""><img src="/Views/images/PcComestibles-Simple.png">Blog</a>
+                <a class="footer-a" href=""><img src="/Views/images/PcComestibles-Simple.png">Instagram</a>
+                <a class="footer-a" href=""><img src="/Views/images/PcComestibles-Simple.png">Twitter</a>
+                <a class="footer-a" href=""><img src="/Views/images/PcComestibles-Simple.png">Facebook</a>
+                <a class="footer-a" href=""><img src="/Views/images/PcComestibles-Simple.png">Telegram</a>
+                <a class="footer-a" href=""><img src="/Views/images/PcComestibles-Simple.png">Youtube</a>
+                <a class="footer-a" href=""><img src="/Views/images/PcComestibles-Simple.png">TikTok</a>
+                <a class="footer-a" href=""><img src="/Views/images/PcComestibles-Simple.png">Twitch</a>
             </div>
-            <div class="col-2 footer-div">Accidente</div>
+            <div class="col-12 footer-div">
+                <p><strong>PcComestibles en</strong></p>
+            </div>
         </div>
+
+        <!--Mobile Footer--->
+        <div class="row p-5 m-0 footer-top d-lg-none">
+            <div class="col-12 footer-dropDown close" id="dropDown1">
+                <button class="dropDown" name="dropDown1">Por que comprar</button>
+                <div class="row row-cols-2 m-0 footer-top d-lg-none hide">
+                    <a class="footer-a" href="">Como comprar</a>
+                    <a class="footer-a" href="">Formas de pago</a>
+                    <a class="footer-a" href="">Gastos de envio</a>
+                    <a class="footer-a" href="">Cupones descuento</a>
+                    <a class="footer-a" href="">Preguntas frecuentes</a>
+                    <a class="footer-a" href="">Opiniones de clientes</a>
+                    <a class="footer-a" href="">Targeta regalo</a>
+                </div>
+            </div>
+            <div class="col-12 footer-dropDown close" id="dropDown2">
+                <button class="dropDown" name="dropDown2">Quienes somos</button>
+                <div class="row row-cols-2 m-0 footer-top d-lg-none hide">
+                    <a class="footer-a" href="">Quienes somos</a>
+                    <a class="footer-a" href="">Compromisos</a>
+                    <a class="footer-a" href="">Nuestras tiendas</a>
+                    <a class="footer-a" href="">Nuestras marcas</a>
+                    <a class="footer-a" href="">Condiciones de compra</a>
+                    <a class="footer-a" href="">Afiliados</a>
+                    <a class="footer-a" href="">Aviso legal</a>
+                    <a class="footer-a" href="">Privacidad</a>
+                    <a class="footer-a" href="">Condiciones Generales Marketing</a>
+                </div>
+            </div>
+            <div class="col-12 footer-dropDown close" id="dropDown3">
+                <button class="dropDown" name="dropDown3">Contactar</button>
+                <div class="row row-cols-2 m-0 footer-top d-lg-none hide">
+                    <a class="footer-a" href="">Contacto y Ayuda</a>
+                    <a class="footer-a" href="">Devoluciones y Garantias</a>
+                    <a class="footer-a" href="">Wiki PcComestibles</a>
+                    <a class="footer-a" href="">Opina y Gana</a>
+                    <a class="footer-a" href="">Publicidad</a>
+                    <a class="footer-a" href="">Trabaja con nosotros</a>
+                    <a class="footer-a" href="">Canal etico</a>
+                    <a class="footer-a" href="">Politica de cookies</a>
+                </div>
+            </div>
+            <div class="col-12 footer-dropDown close" id="dropDown4">
+                <button class="dropDown" name="dropDown4">Otros</button>
+                <div class="row row-cols-2 m-0 footer-top d-lg-none hide">
+                    <a class="footer-a" href="">Replay</a>
+                    <a class="footer-a" href="">Black Friday</a>
+                    <a class="footer-a" href="">PcDays</a>
+                    <a class="footer-a" href="">Concurso</a>
+                    <a class="footer-a" href="">Responsabilidad Social</a>
+                    <a class="footer-a" href="">Programa de mbajadores</a>
+                </div>
+            </div>
+            <div class="col-12 footer-dropDown close" id="dropDown5">
+                <button class="dropDown" name="dropDown5">Comunidad</button>
+                <div class="row row-cols-2 m-0 footer-top d-lg-none hide">
+                    <a class="footer-a" href=""><img src="/Views/images/PcComestibles-Simple.png">Blog</a>
+                    <a class="footer-a" href=""><img src="/Views/images/PcComestibles-Simple.png">Instagram</a>
+                    <a class="footer-a" href=""><img src="/Views/images/PcComestibles-Simple.png">Twitter</a>
+                    <a class="footer-a" href=""><img src="/Views/images/PcComestibles-Simple.png">Facebook</a>
+                    <a class="footer-a" href=""><img src="/Views/images/PcComestibles-Simple.png">Telegram</a>
+                    <a class="footer-a" href=""><img src="/Views/images/PcComestibles-Simple.png">Youtube</a>
+                    <a class="footer-a" href=""><img src="/Views/images/PcComestibles-Simple.png">TikTok</a>
+                    <a class="footer-a" href=""><img src="/Views/images/PcComestibles-Simple.png">Twitch</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row m-0" id="footer-bottom">
+        <p class="col-8 m-0 p-0">PC Componentes y Multimedia SLU CIF B73347494. AVDA Europa, Parcela 2-5 y 2-6. Polígono industrial Las Salinas, 30840, Alhama de Murcia, Murcia. ESPAÑA.</p>
     </div>
 </section>
