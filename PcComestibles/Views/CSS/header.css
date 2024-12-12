@@ -80,6 +80,10 @@ header nav{
     margin-left: 10%;
 }
 
+#profile-buttons button{
+    margin-left: 10%;
+}
+
 #profile-buttons a:hover{
     cursor: pointer;
 }
@@ -116,6 +120,11 @@ header nav{
 
 .normal-button:hover{
     background-color: #F2F2F2;
+    color: black;
+}
+
+.normal-button p{
+    margin: 0;  
 }
 
 .normal-button p{

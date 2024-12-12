@@ -9,7 +9,11 @@ class Router{
         '/menu' => ['controller' => 'menu', 'action' => 'showMenu'],
         '/error' => ['controller' => 'catError', 'action' => 'error404'],
         '/login' => ['controller' => 'login', 'action' => 'loginView'],
-        '/login/revision' => ['controller' => 'login', 'action' => 'login']
+        '/login/revision' => ['controller' => 'login', 'action' => 'login'],
+        '/register' => ['controller' => 'login', 'action' => 'registerView'],
+        '/register/register' => ['controller' => 'login', 'action' => 'register'],
+        '/loguot' => ['controller' => 'login', 'action' => 'loguot'],
+        '/cartAdd' => ['controller' => 'cart', 'action' => 'add']
     ];
 
     public static function getView($url, $method){

@@ -59,8 +59,14 @@
                                 <img src='/Views/images/PcComestibles-Simple.png' alt=''>
                                 <p class='free-deliver-text'>Envio gratis con una compra superior a 50€</p>
                             </div>
-                        </div>
-                    </a>";
+                        </div>";
+                        if (isset($_SESSION['username'])) {
+                            echo "<form action='/cartAdd' method='POST'>
+                                <input type='text' name='productID' value='".$row->getID()."' hidden>
+                                <button id=''>".$row->getID()."</button>
+                            </form>
+                        </a>";
+                        }
                 }
             ?>
         </div>
