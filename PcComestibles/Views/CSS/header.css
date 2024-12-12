@@ -166,3 +166,7 @@ header nav{
     display: flex;
     height: 38px;
 }
+
+.cart_buttons{
+    display: flex;
+}

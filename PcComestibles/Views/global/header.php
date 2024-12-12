@@ -76,11 +76,11 @@ if (!isset($_SESSION['username'])) {
             </form>
         </div>
         <?php
-        if (isset($_SESSION['username'])) {
-            echo '<div class="col-3" id="profile-buttons">
+        if (isset($_SESSION['username'])) { ?>
+            <div class="col-3" id="profile-buttons">
                 <button class="btn btn-primary normal-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                     <svg class="icon_defaultIcon__pltkn10 icon_bigIcon__pltkn12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" enable-background="new 0 0 24 24"><path d="M12 12c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM20 20h-16v-1c0-3.5 3.3-6 8-6s8 2.5 8 6v1zm-13.8-2h11.7c-.6-1.8-2.8-3-5.8-3s-5.3 1.2-5.9 3z"></path></svg> 
-                    <p class="d-none d-lg-flex">'.$_SESSION['username'].'</p>
+                    <p class="d-none d-lg-flex"><?=$_SESSION['username']?></p>
                 </button>
                 <button class="btn btn-primary normal-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight-2" aria-controls="offcanvasRight">
                     <svg class="icon_defaultIcon__pltkn10 icon_bigIcon__pltkn12" xmlns="http://www.w3.org/2000/svg " viewBox="0 0 24 24" enable-background="new 0 0 24 24"><path d="M12 12c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM20 20h-16v-1c0-3.5 3.3-6 8-6s8 2.5 8 6v1zm-13.8-2h11.7c-.6-1.8-2.8-3-5.8-3s-5.3 1.2-5.9 3z"></path></svg> 
@@ -104,25 +104,31 @@ if (!isset($_SESSION['username'])) {
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
-                        <form action="/loguot" method="PSOT">
+                        <div>
                             <p>Cosas de mi cesta</p>
-                            ';
-                            foreach($_SESSION['cart'] as $product){
-                                echo "<div class='border'>
-                                    <img src='/Views/images/".$product['product']->getImage()."' alt='' height='50px' width='50px'>
-                                    <p>".$product['product']->getName()."</p>
-                                    <button></button>
-                                    <h5>".$product['cuantity']."</h5>
-                                    <button></button>
-                                </div>";   
-                            }
-                        echo '
-                        </form>
+                            
+                            <?php foreach($_SESSION['cart'] as $product){ ?>
+                                <div class='border'>
+                                    <img src='/Views/images/<?= $product['product']->getImage()?>' alt='' height='50px' width='50px'>
+                                    <p><?=$product['product']->getName()?></p>
+                                    <div class='cart_buttons'>
+                                        <button id='cart_less'>-</button>
+                                        <h5><?=$product['cuantity']?></h5>
+                                        <button id='cart_plus'>+</button>
+                                    </div>
+                                    <form action="/deleteFromCart" method="POST">
+                                        <input type="text" value=<?= $product['product']->getID() ?> hidden>
+                                        <button>borrar</button>
+                                    </form>
+                                </div>
+                           <?php } ?>
+                        
+                        </div>
                     </div>
                 </div>
-            </div>';
-        }else{
-            echo '
+            </div>
+        <?php } else{?>
+            
             <div class="col-3" id="profile-buttons">
             <a class="normal-button" href="/login">
             <svg class="icon_defaultIcon__pltkn10 icon_bigIcon__pltkn12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" enable-background="new 0 0 24 24"><path d="M12 12c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM20 20h-16v-1c0-3.5 3.3-6 8-6s8 2.5 8 6v1zm-13.8-2h11.7c-.6-1.8-2.8-3-5.8-3s-5.3 1.2-5.9 3z"></path></svg> 
@@ -132,9 +138,8 @@ if (!isset($_SESSION['username'])) {
             <svg class="icon_defaultIcon__pltkn10 icon_bigIcon__pltkn12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" enable-background="new 0 0 24 24"><path d="M12 12c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM20 20h-16v-1c0-3.5 3.3-6 8-6s8 2.5 8 6v1zm-13.8-2h11.7c-.6-1.8-2.8-3-5.8-3s-5.3 1.2-5.9 3z"></path></svg> 
             <p class= "d-none d-lg-flex">Cesta</p>
             </a>
-            </div>';
-        }
-        ?>
+            </div>
+        <?php }?>
     </div>
     <div class="container-fluid m-0 p-0">
         <nav id="header-nav" class="row">

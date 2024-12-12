@@ -54,7 +54,7 @@ class DataBase{
     public static function insertToCart($user_ID, $product_ID){
         $con = Database::connect();
 
-        $carrito = Database::getCart($user_ID, 0);
+        /*$carrito = Database::getCart($user_ID, 0);
         
         if ($carrito == "") {
             $carrito = $product_ID.',1;';
@@ -78,7 +78,19 @@ class DataBase{
             }
         }
 
-        $result = mysqli_query($con, "update carrito set productos = '".$carrito."' where user_ID = ".$user_ID."");
+        $result = mysqli_query($con, "update carrito set productos = '".$carrito."' where user_ID = ".$user_ID."");*/
+
+        $exist = mysqli_query($con, "select productos from carrito where user_ID =".$user_ID."and productos = '".$product_ID."'");
+
+        if ($exist == False) {
+            if(mysqli_query($con, "isnert into carrito (user_ID, productos, cantidad) values (".$user_ID.",".$product_ID.",0")){
+                $exist = True;
+            }
+        }
+
+        if ($exist) {
+            $result = mysqli_query($con, "update carrito set cantidad = cantidad + 1 where user_ID =".$user_ID."and productos =".$product_ID);
+        }
 
         $con->close();
         return $result;
@@ -89,12 +101,12 @@ class DataBase{
 
         DataBase::createProducts();
 
-        $result = mysqli_query($con, "select productos from carrito where user_ID = ".$user_ID."");
+        $result = mysqli_query($con, "select productos, cantidad from carrito where user_ID = ".$user_ID."");
 
         $row = mysqli_fetch_assoc($result);
         
         if ($method == 0) {
-            return $result;
+            return $row['productos'];
         } else{
 
             $split = explode(';', $row['productos']);
@@ -106,7 +118,7 @@ class DataBase{
                     continue;
                 }
                 $reSplited = explode(',', $value);
-                $final[] = ['product' =>  self::$products[$reSplited[0]], 'cuantity' => $reSplited[1]];
+                $final[] = ['product' =>  self::$products[$reSplited[0]-1], 'cuantity' => $reSplited[1]];
             }
 
             return $final;

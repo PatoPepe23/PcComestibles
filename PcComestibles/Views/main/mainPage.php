@@ -38,37 +38,34 @@
     </div>
     <div class="container m-0 p-0 mainSliderContainer">
         <div class="row flex-nowrap mainSlider-1" id="mainSlider" style="margin-left: 0px;">
-            <?php
-
-            foreach ($products as $row) {
-                echo "<a class='card' href=''>
-                        <div class='cardImage'>
-                            <img src='/Views/images/".$row->getImage()."' class='' alt='...'>
+            <?php foreach ($products as $row) { ?>
+                <a class='card' href=''>
+                    <div class='cardImage'>
+                        <img src='/Views/images/<?=$row->getImage()?>' class='' alt='...'>
+                    </div>
+                    <div class='cardButtons'>
+                        <p class='trending'>Trending</p>
+                        <p class='promotion'>Promocion</p>
+                    </div>
+                    <div class='card-body'>
+                        <p class='card-text'><?=$row->getName()?></p>
+                        <div class='card-prices'>
+                            <p class='card-price'><?=$row->getPrice()?>€</p>
+                            <p class='card-old-price'><?=$row->getOldPrice()?>€</p>
                         </div>
-                        <div class='cardButtons'>
-                            <p class='trending'>Trending</p>
-                            <p class='promotion'>Promocion</p>
+                        <div class='free-deliver'>
+                            <img src='/Views/images/PcComestibles-Simple.png' alt=''>
+                            <p class='free-deliver-text'>Envio gratis con una compra superior a 50€</p>
                         </div>
-                        <div class='card-body'>
-                            <p class='card-text'>".$row->getName()."</p>
-                            <div class='card-prices'>
-                                <p class='card-price'>".$row->getPrice()."€</p>
-                                <p class='card-old-price'>".$row->getOldPrice()."€</p>
-                            </div>
-                            <div class='free-deliver'>
-                                <img src='/Views/images/PcComestibles-Simple.png' alt=''>
-                                <p class='free-deliver-text'>Envio gratis con una compra superior a 50€</p>
-                            </div>
-                        </div>";
-                        if (isset($_SESSION['username'])) {
-                            echo "<form action='/cartAdd' method='POST'>
-                                <input type='text' name='productID' value='".$row->getID()."' hidden>
-                                <button id=''>".$row->getID()."</button>
-                            </form>
-                        </a>";
-                        }
-                }
-            ?>
+                    </div>
+                    <?php if (isset($_SESSION['username'])) { ?>
+                        <form action='/cartAdd' method='POST'>
+                            <input type='text' name='productID' value=<?=$row->getID()?> hidden>
+                            <button id=''><?=$row->getID()?></button>
+                        </form>
+                </a>
+                    <?php } ?>
+            <?php } ?>
         </div>
         <button id="sliderLeft" class="sliderButton"><svg width="12" height="21" viewBox="0 0 12 21" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0.556915 0.556885L10.5703 10.5703" stroke="black" stroke-width="1.88976" stroke-linejoin="bevel"/>

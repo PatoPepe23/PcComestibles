@@ -21,5 +21,9 @@ class Cart{
         header('location: /');
     }
 
+    public function remove(){
+        
+    }
+
 
 }
