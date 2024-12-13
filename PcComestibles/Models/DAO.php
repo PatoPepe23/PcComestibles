@@ -51,7 +51,7 @@ class DataBase{
         return $result;
     }
 
-    public static function insertToCart($user_ID, $product_ID){
+    public static function insertToCart($user_ID, $product_ID, $action){
         $con = Database::connect();
 
         /*$carrito = Database::getCart($user_ID, 0);
@@ -80,18 +80,43 @@ class DataBase{
 
         $result = mysqli_query($con, "update carrito set productos = '".$carrito."' where user_ID = ".$user_ID."");*/
 
-        $exist = mysqli_query($con, "select productos from carrito where user_ID =".$user_ID."and productos = '".$product_ID."'");
+        $stmt = $con->prepare("select productos from carrito where user_ID = ? and productos = ?");
+        $stmt->bind_param('ii', $user_ID, $product_ID);
+        $stmt->execute();
 
-        if ($exist == False) {
-            if(mysqli_query($con, "isnert into carrito (user_ID, productos, cantidad) values (".$user_ID.",".$product_ID.",0")){
+        $exist = $stmt->get_result();
+
+        if ($exist->num_rows > 0) {
+            $stmt = $con->prepare( "isnert into carrito (user_ID, productos, cantidad) values (?, ?, 0");
+            $stmt->bind_param('ii', $user_ID, $product_ID);
+            $stmt->execute();
+
+            if($stmt->affected_rows > 0){
                 $exist = True;
             }
         }
 
         if ($exist) {
-            $result = mysqli_query($con, "update carrito set cantidad = cantidad + 1 where user_ID =".$user_ID."and productos =".$product_ID);
+            switch ($action){
+                case 'plus':
+                    $stmt = $con->prepare( "update carrito set cantidad = cantidad + 1 where user_ID = ? and productos = ?");
+                    break;
+                case 'less':
+                    $stmt = $con->prepare( "update carrito set cantidad = cantidad - 1 where user_ID = ? and productos = ?");
+                    break;
+            }
+
+            $stmt->bind_param('ii', $user_ID, $product_ID);
+            $stmt->execute();
+
+            if ($stmt->affected_rows > 0) {
+                $result = True;
+            }else{
+                $result = False;
+            }
         }
 
+        $stmt->close();
         $con->close();
         return $result;
     }
