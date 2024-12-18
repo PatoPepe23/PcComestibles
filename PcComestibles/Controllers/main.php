@@ -13,8 +13,6 @@ class main{
         $title = "Home";
         $result = 0;
 
-        $products = [];
-
         $products = DataBase::createProducts();
 
         include_once("Views/main.php");

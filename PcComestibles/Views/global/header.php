@@ -1,9 +1,5 @@
 <?php
-
-if (!isset($_SESSION['username'])) {
-    session_start();
-}
-
+session_start();
 ?>
 
 <header class="container-fluid text-center">
@@ -93,7 +89,7 @@ if (!isset($_SESSION['username'])) {
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
-                        <form action="/loguot" method="PSOT">
+                        <form action="/logout" method="PSOT">
                             <button>Cerrar seion</button>
                         </form>
                     </div>
@@ -106,22 +102,37 @@ if (!isset($_SESSION['username'])) {
                     <div class="offcanvas-body">
                         <div>
                             <p>Cosas de mi cesta</p>
-                            
+
                             <?php foreach($_SESSION['cart'] as $product){ ?>
                                 <div class='border'>
                                     <img src='/Views/images/<?= $product['product']->getImage()?>' alt='' height='50px' width='50px'>
                                     <p><?=$product['product']->getName()?></p>
                                     <div class='cart_buttons'>
-                                        <button id='cart_less'>-</button>
+                                        <form action="/cartDecrease" method="POST">
+                                            <input type="hidden" name='productID' value=<?= $product['product']->getID() ?>>
+                                            <input type="hidden" name='page' value=<?= $_SERVER['REQUEST_URI']; ?>>
+                                            <button id='cart_less'>-</button>
+                                        </form>
                                         <h5><?=$product['cuantity']?></h5>
-                                        <button id='cart_plus'>+</button>
+                                        <form action="/cartAdd" method="POST">    
+                                            <input type="hidden" name='productID' value=<?= $product['product']->getID() ?>>
+                                            <input type="hidden" name='page' value=<?= $_SERVER['REQUEST_URI']; ?>>
+                                            <button id='cart_plus'>+</button>
+                                        </form>
                                     </div>
-                                    <form action="/deleteFromCart" method="POST">
-                                        <input type="text" value=<?= $product['product']->getID() ?> hidden>
+                                    <form action="/cartRemove" method="POST">
+                                        <input type="hidden" name='productID' value=<?= $product['product']->getID() ?>>
+                                        <input type="hidden" name='page' value=<?= $_SERVER['REQUEST_URI']; ?>>
                                         <button>borrar</button>
                                     </form>
+                                    <div>
+                                        <p><?= $product['cuantity'] * $product['product']->getPrice() ?>€</p>
+                                    </div>
                                 </div>
-                           <?php } ?>
+                           <?php } 
+                            if ($_SESSION['cart'] != null) { ?>
+                                <a href="/cart">Finalizar compra</a>
+                            <?php } ?>
                         
                         </div>
                     </div>
@@ -134,7 +145,7 @@ if (!isset($_SESSION['username'])) {
             <svg class="icon_defaultIcon__pltkn10 icon_bigIcon__pltkn12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" enable-background="new 0 0 24 24"><path d="M12 12c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM20 20h-16v-1c0-3.5 3.3-6 8-6s8 2.5 8 6v1zm-13.8-2h11.7c-.6-1.8-2.8-3-5.8-3s-5.3 1.2-5.9 3z"></path></svg> 
             <p class= "d-none d-lg-flex">Cuenta</p>
             </a>
-            <a class="normal-button">
+            <a class="normal-button" href="/login">
             <svg class="icon_defaultIcon__pltkn10 icon_bigIcon__pltkn12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" enable-background="new 0 0 24 24"><path d="M12 12c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM20 20h-16v-1c0-3.5 3.3-6 8-6s8 2.5 8 6v1zm-13.8-2h11.7c-.6-1.8-2.8-3-5.8-3s-5.3 1.2-5.9 3z"></path></svg> 
             <p class= "d-none d-lg-flex">Cesta</p>
             </a>

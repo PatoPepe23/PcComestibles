@@ -32,7 +32,6 @@
         </div>
     </div>
   </div>
-
     <div class="row mt-5">
         <h2>Oferstas Semanales</h2>
     </div>
@@ -61,6 +60,7 @@
                     <?php if (isset($_SESSION['username'])) { ?>
                         <form action='/cartAdd' method='POST'>
                             <input type='text' name='productID' value=<?=$row->getID()?> hidden>
+                            <input type="hidden" name='page' value=<?= $_SERVER['REQUEST_URI']; ?>>
                             <button id=''><?=$row->getID()?></button>
                         </form>
                 </a>

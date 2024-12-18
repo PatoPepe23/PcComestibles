@@ -1,0 +1,23 @@
+.cart_global_container{
+    display: flex;
+}
+
+.cart_container{
+    width: 70%;
+}
+
+.cart_card{
+    display: flex;
+    border-radius: 4px;
+    height: 15vw;
+}
+
+.cart_resume{
+    width: 20%;
+}
+
+.send_cart{
+    justify-content: center;
+    width: 100%;
+    font-size: 18px;
+}

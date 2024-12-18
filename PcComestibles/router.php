@@ -12,8 +12,12 @@ class Router{
         '/login/revision' => ['controller' => 'login', 'action' => 'login'],
         '/register' => ['controller' => 'login', 'action' => 'registerView'],
         '/register/register' => ['controller' => 'login', 'action' => 'register'],
-        '/loguot' => ['controller' => 'login', 'action' => 'loguot'],
-        '/cartAdd' => ['controller' => 'cart', 'action' => 'add']
+        '/logout' => ['controller' => 'login', 'action' => 'logout'],
+        '/cartAdd' => ['controller' => 'cart', 'action' => 'add'],
+        '/cartDecrease' => ['controller' => 'cart', 'action' => 'decrease'],
+        '/cartRemove' => ['controller' => 'cart', 'action' => 'remove'],
+        '/cart' => ['controller' => 'cart', 'action' => 'cart'],
+        '/discount' => ['controller' => 'cart', 'action' => 'discount']
     ];
 
     public static function getView($url, $method){

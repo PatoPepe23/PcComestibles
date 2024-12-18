@@ -68,8 +68,8 @@ class login{
     public function registerView(){
         
         $view = "Views/main/register.php";
-        $header = defauldHeader;
-        $footer = defauldFooter;
+        $header = loginHeader;
+        $footer = loginFooter;
         $title = "Login";
 
         include_once("Views/main.php");
@@ -123,7 +123,7 @@ class login{
         include_once("Views/main.php");
     }
 
-    public function loguot(){
+    public function logout(){
         include_once('Models/DAO.php');
 
         session_start();

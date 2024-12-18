@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (isset($_SESSION['username'])) {
+    header('location: /');
+}
+?>
+
 <form action="/register/register" method="POST">
     <?php
     if (isset($found)) {
