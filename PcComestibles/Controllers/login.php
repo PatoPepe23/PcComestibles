@@ -20,7 +20,7 @@ class login{
         $user = $_POST['user'];
         $password = $_POST['password'];
 
-        $result = Database::getuser($user);
+        $result = DAO::getuser($user);
         
         $view = "Views/main/mainPage.php";
         $header = defauldHeader;
@@ -37,10 +37,11 @@ class login{
                 
                 $user_ID = $result['user_ID'];
 
-                $carrito = Database::getCart($user_ID, 1);
+                $carrito = DAO::getCart($user_ID, 1);
 
                 $_SESSION['username'] = $user;
                 $_SESSION['user_ID'] = $user_ID;
+                $_SESSION['range'] = $result['rango'];
                 $_SESSION['cart'] = $carrito;
                 
                 $result = 'El usuario existe';
@@ -86,7 +87,7 @@ class login{
 
         $found = False;
         $no_match = False;
-        $result = Database::getuser($user);
+        $result = DAO::getuser($user);
         
         $view = "Views/main/login.php";
         $header = loginHeader;
@@ -107,7 +108,7 @@ class login{
         } else{
 
             if ($password === $verify_password) {
-                $result = Database::registerUser($user, $password);
+                $result = DAO::registerUser($user, $password);
             }else{
                 $no_match = True;
 
@@ -138,7 +139,7 @@ class login{
 
         $products = [];
 
-        $products = DataBase::createProducts();
+        $products = DAO::createProducts();
 
         header("location: /");
         include_once("Views/main.php");

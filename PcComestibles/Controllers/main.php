@@ -13,7 +13,7 @@ class main{
         $title = "Home";
         $result = 0;
 
-        $products = DataBase::createProducts();
+        $products = DAO::createProducts();
 
         include_once("Views/main.php");
     }
@@ -24,6 +24,15 @@ class main{
         $footer = defauldFooter;
 
         $result = $query['num1'] + $query['num2'];
+
+        include_once("Views/main.php");
+    }
+
+    public function adminView(){
+        $view = "Views/main/admin/adminView.php";
+        $header = loginHeader;
+        $footer = defauldFooter;
+        $title = "Admin";
 
         include_once("Views/main.php");
     }

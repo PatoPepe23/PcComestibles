@@ -17,10 +17,17 @@ class Router{
         '/cartDecrease' => ['controller' => 'cart', 'action' => 'decrease'],
         '/cartRemove' => ['controller' => 'cart', 'action' => 'remove'],
         '/cart' => ['controller' => 'cart', 'action' => 'cart'],
-        '/discount' => ['controller' => 'cart', 'action' => 'discount']
+        '/discount' => ['controller' => 'cart', 'action' => 'discount'],
+        '/adminMenu' => ['controller' => 'main', 'action' => 'adminView']
     ];
 
-    public static function getView($url, $method){
+    /**
+     * Coje los parametros de la vista y de la query de la URL.
+     *
+     * @param string $url Es la URL con la que trabajara el enrutador.
+     * @return array Devuelve una array que contiene los parametros de la vista y la query.
+     */
+    public static function getView($url){
         $splitUrl = parse_url($url);
 
         $urlPath = null;
@@ -38,6 +45,11 @@ class Router{
         return [$urlPath, $query];
     }
 
+    /**
+     * Busca y carga la pagina que se le indica segun la url y la query.
+     *
+     * @param array $query Devuelve la query para poder trabajar con ella en caso de necesitarlo.
+     */
     public static function searchPage($viewRute, $query = []){
         
         if($viewRute == null)
@@ -66,11 +78,15 @@ class Router{
                     $action = defauld_url;
                 }
 
-                if(count($query) == 2){
+                if(isset($query['key1']) && isset($query['key2'])){
                     $action = 'calc';
                 }
 
-                $controller->$action($query);
+                if (is_callable([$controller, $action])) {
+                    $controller->$action($query);
+                } else {
+                    header('location:'.defauld_url."/catError");
+                }
                 
             }
         }

@@ -1,16 +1,7 @@
 <?php
-class DataBase{
+include_once("Config/dataBase.php");
+class DAO{
     private static $products = [];
-
-    public static function connect($host = "127.0.0.1", $user="root", $pass="root", $database="PcComestibles_BBDD", $port= 3307){
-        $con = new mysqli($host, $user, $pass, $database, $port);
-        
-        if ($con === false) {
-            die("ERROR". $con->connect_error);
-        }
-
-        return $con;
-    }
 
     public static function createProducts(){
 
@@ -111,7 +102,7 @@ class DataBase{
         $con = Database::connect();
 
         if ($method == 1) {
-            DataBase::createProducts();
+            DAO::createProducts();
         }
 
         $stmt = $con->prepare("select productos, cantidad from carrito where user_ID = ?");

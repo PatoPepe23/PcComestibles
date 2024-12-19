@@ -26,6 +26,9 @@ session_start();
                     <div>
                         <a href="/">Home</a>
                         <a href="/menu">Menu</a>
+                        <?php if (isset($_SESSION['username']) && $_SESSION['range'] == 1) { ?>
+                            <a href="/adminMenu">Panel de administrador</a>
+                        <?php } ?>
                     </div>
                 </div>
             </div>

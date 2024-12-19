@@ -21,7 +21,7 @@ class Cart{
         if (!empty($_POST['discount'])) {
             $code = $_POST['discount'];
 
-            $result = DataBase::discounts($code);
+            $result = DAO::discounts($code);
 
             if ($result != null) {
                 $array_discount = $result->fetch_assoc();
@@ -40,7 +40,7 @@ class Cart{
             }
         }
 
-        $products = DataBase::createProducts();
+        $products = DAO::createProducts();
         
         include_once("Views/main.php");
     }
@@ -54,9 +54,9 @@ class Cart{
         $user_ID = $_SESSION['user_ID'];
         $URL = $_POST['page'];
 
-        DataBase::modifyToCart($user_ID, $product_ID, 'plus');
+        DAO::modifyToCart($user_ID, $product_ID, 'plus');
 
-        $carrito = Database::getCart($user_ID, 1);
+        $carrito = DAo::getCart($user_ID, 1);
         $_SESSION['cart'] = $carrito;
 
         header("location: $URL");
@@ -71,9 +71,9 @@ class Cart{
         $user_ID = $_SESSION['user_ID'];
         $URL = $_POST['page'];
 
-        DataBase::modifyToCart($user_ID, $product_ID, 'less');
+        DAO::modifyToCart($user_ID, $product_ID, 'less');
 
-        $carrito = Database::getCart($user_ID, 1);
+        $carrito = DAo::getCart($user_ID, 1);
         $_SESSION['cart'] = $carrito;
 
         header("location: $URL");
@@ -88,9 +88,9 @@ class Cart{
         $user_ID = $_SESSION['user_ID'];
         $URL = $_POST['page'];
 
-        DataBase::modifyToCart($user_ID, $product_ID, 'remove');
+        DAO::modifyToCart($user_ID, $product_ID, 'remove');
 
-        $carrito = Database::getCart($user_ID, 1);
+        $carrito = DAO::getCart($user_ID, 1);
         $_SESSION['cart'] = $carrito;
 
         header("location: $URL");
@@ -102,7 +102,7 @@ class Cart{
         $URL = $_POST['page'];
         $code = $_POST['discount'];
 
-        $result = DataBase::discounts($code);
+        $result = DAO::discounts($code);
 
         /*if ($result != null) {
             $discount_value = $result['discount'];
