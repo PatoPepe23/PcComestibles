@@ -1,8 +1,13 @@
-buttonRight = document.getElementById('sliderRight').addEventListener('click', slideToRight);
-buttonLeft = document.getElementById('sliderLeft').addEventListener('click', slideToLeft);
+try {
+    buttonRight = document.getElementById('sliderRight').addEventListener('click', slideToRight);
+    buttonLeft = document.getElementById('sliderLeft').addEventListener('click', slideToLeft);
+    disableButton();
+    slideTo();
+} catch (error) {
+    console.log('No hay botones');
+}
 
-disableButton();
-slideTo();
+
 
 function getSlider() {
     slider = document.getElementById('mainSlider')

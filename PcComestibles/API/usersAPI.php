@@ -1,11 +1,11 @@
 <?php
-include_once("Config/dataBase.php");
+include_once("../Config/DataBase.php");
 
 class usersAPI{
     public function getUser(){
         $con = DataBase::connect();
 
-        $result = mysqli_query($con, 'select * from Users');
+        $result = mysqli_query($con, 'select * from Users;');
 
         $postJson = array();
         
@@ -18,7 +18,14 @@ class usersAPI{
         $con->close();
         return $json;
     }
-
-
 }
+
+$api = new usersAPI();
+
+// Obtener los usuarios
+$usuarios = $api->getUser();
+
+header('Content-Type: application/json'); 
+
+echo $usuarios;
 ?>

@@ -63,8 +63,8 @@
                             <input type="hidden" name='page' value=<?= $_SERVER['REQUEST_URI']; ?>>
                             <button id=''><?=$row->getID()?></button>
                         </form>
-                </a>
                     <?php } ?>
+                </a>
             <?php } ?>
         </div>
         <button id="sliderLeft" class="sliderButton"><svg width="12" height="21" viewBox="0 0 12 21" fill="none" xmlns="http://www.w3.org/2000/svg">
