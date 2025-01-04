@@ -45,6 +45,19 @@ class Cart{
         include_once("Views/main.php");
     }
 
+    public function sendDirectionView() {
+        $view = "Views/main/sendDirectionCart.php";
+        $header = loginHeader;
+        $footer = defauldFooter;
+        $title = "sendCart";
+        $result = 0;
+        $discount = 1;
+        $type = 0;
+        $price = $_POST['totalPrice'];
+
+        include_once("Views/main.php");
+    }
+
     public function add(){
         include_once('Models/DAO.php');
 

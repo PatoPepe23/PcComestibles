@@ -7,11 +7,11 @@ if (!isset($_SESSION['username'])) {
 $price = 0;
 
 ?>
-
+<h2>Mi cesta</h2>
 <section class="cart_global_container">
     <div class="cart_container">
         <?php foreach($_SESSION['cart'] as $product){ 
-            $price += $product['cuantity'] * $product['product']->getPrice();
+            $price += $product['cuantity'] * $product['price'];
             ?>
         <div class='border cart_card m-4'>
             <img src='/Views/images/<?= $product['product']->getImage()?>' alt='' height='50px' width='50px'>
@@ -35,7 +35,7 @@ $price = 0;
                 <button>borrar</button>
             </form>
             <div>
-                <p><?= $product['cuantity'] * $product['product']->getPrice() ?>€</p>
+                <p><?= $product['cuantity'] * $product['price']?>€</p>
             </div>
         </div>
         <?php } ?>
@@ -66,8 +66,8 @@ $price = 0;
             <p>Total (Con impuestos incluidos) <strong> <?= $price ?>€</strong></p>
         </div>
 
-        <form action="" method="POST">
-            <input type="hidden" name='page' value=<?= $price ?>>
+        <form action="sendDirection" method="POST">
+            <input type="hidden" name='totalPrice' value=<?= $price ?>>
             <button class="promo-button send_cart">Realizar pedido</button>
         </form>
     </div>

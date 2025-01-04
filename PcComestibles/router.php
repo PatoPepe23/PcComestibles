@@ -18,7 +18,8 @@ class Router{
         '/cartRemove' => ['controller' => 'cart', 'action' => 'remove'],
         '/cart' => ['controller' => 'cart', 'action' => 'cart'],
         '/discount' => ['controller' => 'cart', 'action' => 'discount'],
-        '/adminMenu' => ['controller' => 'main', 'action' => 'adminView']
+        '/adminMenu' => ['controller' => 'main', 'action' => 'adminView'],
+        '/sendDirection' => ['controller' => 'cart', 'action' => 'sendDirectionView']
     ];
 
     /**

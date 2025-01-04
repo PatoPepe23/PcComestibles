@@ -114,7 +114,12 @@ class DAO{
         $final = [];
 
         while ($row = $result->fetch_assoc()) {
-            $final[] = ['product' =>  self::$products[$row['productos']-1], 'cuantity' => $row['cantidad']];
+            
+            $products = self::$products;
+
+            $price = $products[$row['productos']-1]->getPrice();
+
+            $final[] = ['product' =>  self::$products[$row['productos']-1], 'cuantity' => $row['cantidad'] , 'price' => $price];
         }
         
         return $final;

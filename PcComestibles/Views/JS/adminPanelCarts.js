@@ -37,7 +37,8 @@ function displayUsersCarts(carts) {
         button2.textContent = 'Borrar';
         button2.className = 'admin-delete-button';
         button2.onclick = () => {
-            window.location.href = `CRUD_Admin_Panel.js?id=${cart.user_ID}&cart_ID=${cart.productos}`;
+            return fetch('API/cartAPI.php/deleteCart')
+            //window.location.href = `CRUD_Admin_Panel.js?id=${cart.user_ID}&cart_ID=${cart.productos}`;
         }
         tr.appendChild(button2);
 
