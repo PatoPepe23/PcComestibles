@@ -29,6 +29,27 @@ if (!isset($_SESSION['username'])) {
         </div>
     </div>
     <div class="carousel-item">
+        <button data-modal-target="#modal-parent">Crear</button>
+        <div class="modal-parent" id="modal-parent">
+            <div class="modal-header">
+                <div class="title">Crear Producto</div>
+                <button data-close-button class="close-button">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form action="" class="createProductForm">
+                    <input type="text" name="name" id="name" placeholder="Nombre">
+                    <input type="number" name="price" id="price" placeholder="Precio">
+                    <input type="number" name="last-price" id="last_price" placeholder="Precio anterior">
+                    <input type="text" name="image" id="image" placeholder="Imagen">
+                    <input type="text" name="type" id="type" placeholder="Tipo">
+                    <input type="number" name="promo" id="promo" placeholder="Promocion">
+                    <button id="createProductButton" type="submit">Crear</button>
+                </form>
+            </div>
+        </div>
+        <div id="overlay"></div>
+
+
         <div id="div2">
             <table id="productsTable">
             <h2>Products</h2>
@@ -65,11 +86,11 @@ if (!isset($_SESSION['username'])) {
         </table>
     </div>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+  <button class="carousel-control-prev admin_buton_left" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+  <button class="carousel-control-next admin_buton_right" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>

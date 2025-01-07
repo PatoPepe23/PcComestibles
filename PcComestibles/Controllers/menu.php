@@ -14,7 +14,7 @@ class menu{
 
         $products = [];
 
-        $products = DataBase::createProducts();
+        $products = DAO::createProducts();
 
         include_once("Views/main.php");
     }

@@ -57,9 +57,9 @@ switch($method){
         ]);
         break;
     case 'PUT':
-        # code...
+        
         break;
     case 'DELETE':
-        # code...
+        
         break;
 }
