@@ -39,7 +39,7 @@
         <div class="row">
             <?php
 
-                for ($a = 0; $a < 6; $a++) {
+                for ($a = 0; $a < 10; $a++) {
                     echo "<a class='top-menu-types' href='''>
                             <img src='/Views/images/PcComestibles-Simple.png' alt='' width='100px' height='100px'>
                         </a>";

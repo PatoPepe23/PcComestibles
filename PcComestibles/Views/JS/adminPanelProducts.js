@@ -15,22 +15,57 @@ function getProductsAPI() {
       console.log(products);
       products.forEach(products => {
           const tr = document.createElement('tr');
+          tr.id = products['producto_ID'];
           for (const content in products) {
               if (content === 'password') {
                   continue;
               }
-              const td = document.createElement('td');
-              td.textContent = products[content];
-              tr.appendChild(td);
+              const input = document.createElement('input');
+              input.value = products[content];
+              tr.appendChild(input);
             }
           const button1 = document.createElement('button');
           const button2 = document.createElement('button');
-          button1.textContent = 'Editar';
+          button1.textContent = 'Guardar';
           button1.value = products['id'];
           button2.textContent = 'Eliminar';
           button2.value = products['id'];
 
-          button1.addEventListener('click', modifyProduct);
+          button1.addEventListener('click', function() {
+            const ID = products['producto_ID'];
+
+            const form = document.getElementById(ID);
+
+            console.log(form);
+
+            const product = {
+              name: form.elements[0].value,
+              price: form.querySelector('#price').value,
+              last_price: form.querySelector('#last_price').value,
+              image: form.querySelector('#image').value,
+              type: form.querySelector('#type').value,
+              promo: form.querySelector('#promo').value,
+              id: ID
+            };
+
+
+            fetch('API/modifyProduct.php', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(product)
+
+            }).then(response => {
+              console.log('debug 1');
+              if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+              }
+              //console.log('Respuesta: ',response.));
+              return response.json();
+            })
+              
+          })
 
           button2.addEventListener('click', function() {
               console.log('Eliminar', products['producto_ID']);
@@ -72,11 +107,7 @@ function getProductsAPI() {
           productTable.appendChild(tr);
 
       });
-  }
-
-  function modifyProduct() {
-    
-  }
+  };
 
   function createProduct() {
     event.preventDefault();
@@ -168,4 +199,4 @@ function getProductsAPI() {
 
   
   getProductsAPI()
-   .then(products => displayProducts(products))
+   .then(products => displayProducts(products));
