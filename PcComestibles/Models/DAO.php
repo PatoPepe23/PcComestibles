@@ -126,6 +126,21 @@ class DAO{
        
     }
 
+    public static function clearCart($user_ID){
+        $con = Database::connect();
+
+        $stmt = $con->prepare("delete from carrito where user_ID = ?");
+        $stmt->bind_param('i', $user_ID);
+        $stmt->execute();
+
+        $result = $stmt->affected_rows;
+
+        $stmt->close();
+        $con->close();
+
+        return $result;
+    }
+
     public static function discounts($code){
         $con = Database::connect();
 
@@ -136,12 +151,74 @@ class DAO{
         $result = $stmt->get_result();
 
         return $result;
+    }
 
-        /*if ($result != null) {
-            $discount_value = $result['discount'];
-            $discount_type = $result['discount_type'];
+    public static function addDirection($user_ID, $calle, $ciudad, $estado_provincia, $codigo_postal, $pais, $nombre, $apellido){
+        $con = Database::connect();
 
-            return 
-        }*/
+        $stmt = $con->prepare("insert into direcciones (user_ID, calle, ciudad, estado_provincia, codigo_postal, pais, nombre, apellido) values(?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param('isssssss', $user_ID, $calle, $ciudad, $estado_provincia, $codigo_postal, $pais, $nombre, $apellido);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        $stmt->close();
+        $con->close();
+
+        return $result;
+    }
+
+    public static function getDirections($user_ID){
+        $con = Database::connect();
+
+        $stmt = $con->prepare("select * from direcciones where user_ID = ?");
+        $stmt->bind_param('i', $user_ID);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        $final = [];
+
+        while ($row = $result->fetch_assoc()) {
+            $final[] = $row;
+        }
+
+        $stmt->close();
+        $con->close();
+
+        return $final;
+    }
+
+    public static function makeOrder($user_ID, $totalPrice, $direction_ID, $cart){
+        //include_once("Models/premade.php");
+        //include_once("Models/product.php");
+        $con = Database::connect();
+        DAO::createProducts();
+
+        //Terminar
+        $stmt = $con->prepare("insert into Pedido (user_ID, total, direccion) values(?, ?, ?)");
+        $stmt->bind_param('iii', $user_ID, $totalPrice, $direction_ID);
+        $stmt->execute();
+
+        $result = $stmt->affected_rows;
+
+        $stmt->close();
+
+        
+        
+        foreach ($cart as $product) {
+            $stmt = $con->prepare("insert into productos_pedido (user_id, producto, cantidad) values(?, ?, ?)");
+            $cuantity = $product['cuantity'];
+            $stmt->bind_param('iii', $user_ID, $product['product_id'], $cuantity);
+            $stmt->execute();
+
+            $result = $stmt->affected_rows;
+
+            $stmt->close();
+        }
+
+        $con->close();
+
+        return $result;
     }
 }

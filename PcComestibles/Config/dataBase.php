@@ -9,5 +9,5 @@ class DataBase{
         }
     
         return $con;
-    }
+    } 
 }

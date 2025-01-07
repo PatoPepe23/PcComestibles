@@ -14,10 +14,40 @@
 
 .cart_resume{
     width: 20%;
+    height: 100%;
 }
 
 .send_cart{
     justify-content: center;
     width: 100%;
     font-size: 18px;
+}
+
+.select_direction{
+    width: 100%;
+    height: 100%;
+}
+
+.cart_resume_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.cart_resume{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.div_card_resume{
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+}
+
+.ticketResumeCards{
+    width: 50%;
 }

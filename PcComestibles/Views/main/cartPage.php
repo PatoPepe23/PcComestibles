@@ -5,12 +5,17 @@ if (!isset($_SESSION['username'])) {
 }
 
 $price = 0;
+$_SESSION['carContent'] = [];
 
 ?>
 <h2>Mi cesta</h2>
 <section class="cart_global_container">
     <div class="cart_container">
-        <?php foreach($_SESSION['cart'] as $product){ 
+        <?php foreach($_SESSION['cart'] as $product){
+            $_SESSION['carContent'][] = [
+                'product_id' => $product['product']->getID(),
+                'cuantity' => $product['cuantity']
+            ];
             $price += $product['cuantity'] * $product['price'];
             ?>
         <div class='border cart_card m-4'>

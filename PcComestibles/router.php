@@ -19,7 +19,11 @@ class Router{
         '/cart' => ['controller' => 'cart', 'action' => 'cart'],
         '/discount' => ['controller' => 'cart', 'action' => 'discount'],
         '/adminMenu' => ['controller' => 'main', 'action' => 'adminView'],
-        '/sendDirection' => ['controller' => 'cart', 'action' => 'sendDirectionView']
+        '/sendDirection' => ['controller' => 'cart', 'action' => 'sendDirectionView'],
+        '/addDirection' => ['controller' => 'cart', 'action' => 'addDirection'],
+        '/addNewDirection' => ['controller' => 'cart', 'action' => 'addNewDirection'],
+        '/makeTicket' => ['controller' => 'cart', 'action' => 'ticketView'],
+        '/makeOrder' => ['controller' => 'cart', 'action' => 'makeOrder']
     ];
 
     /**

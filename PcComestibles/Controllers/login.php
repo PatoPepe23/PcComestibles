@@ -38,6 +38,7 @@ class login{
                 $user_ID = $result['user_ID'];
 
                 $carrito = DAO::getCart($user_ID, 1);
+                $_SESSION['directions'] = DAO::getDirections($user_ID);
 
                 $_SESSION['username'] = $user;
                 $_SESSION['user_ID'] = $user_ID;
