@@ -12,6 +12,7 @@ if (!isset($_SESSION['username'])) {
 <div id="carouselExample" class="carousel slide">
   <div class="carousel-inner">
     <div class="carousel-item active">
+        
         <div id="div1">
             <h2>Users</h2>
             <table id="usersTable">
@@ -52,21 +53,17 @@ if (!isset($_SESSION['username'])) {
 
         <div id="div2">
             <table id="productsTable">
-            <h2>Products</h2>
-            <thead>
-                <tr>
-                    <th>Product_ID</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Old_Price</th>
-                    <th>image</th>
-                    <th>Type</th>
-                    <th>Promo</th>
-                </tr>
-            </thead>
-            <tbody>
-                
-            </tbody>
+            <h2>Products</h2> 
+            <tr>
+                <th>Product_ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Old_Price</th>
+                <th>image</th>
+                <th>Type</th>
+                <th>Promo</th>
+            </tr>
+            
         </table>
         </div>
     </div>

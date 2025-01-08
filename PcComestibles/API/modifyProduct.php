@@ -2,6 +2,8 @@
 
 class updateProduct{ 
     function updateProduct(){
+        include_once("../Config/DataBase.php");
+
         $con = DataBase::connect();
 
         $jsonData = file_get_contents('php://input');
@@ -16,7 +18,7 @@ class updateProduct{
         $promo = $data['promo'] ?? 0;
         $id = $data['id'] ?? 0;
 
-        $stmt = $con->prepare('UPDATE Productos SET name = ?, price = ?, old_price = ?, image = ?, type = ?, promo = ? WHERE id = ?');
+        $stmt = $con->prepare('UPDATE Productos SET name = ?, price = ?, old_price = ?, image = ?, type = ?, promo = ? WHERE producto_ID = ?');
         $stmt->bind_param('sddssii', $name, $price, $old_price, $image, $type, $promo, $id);
         $stmt->execute();
 
