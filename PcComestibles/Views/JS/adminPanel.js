@@ -41,7 +41,6 @@ function displayUsers(users) {
         button2.value = user['id'];
 
         button1.addEventListener('click', function() {
-          //const ID = user['user_ID'];
 
           const row = this.parentElement;
 
@@ -73,7 +72,35 @@ function displayUsers(users) {
           })
           .catch(error => console.error('Error:', error));
         });
+
+        button2.addEventListener('click', function() {
+
+          const row = this.parentElement;
+    
+          ID = row.firstChild.textContent;
           
+          const user = {
+            user_ID: ID
+          };
+    
+          console.log(user)
+    
+          fetch('API/deleteUser.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+          })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('La API no respondió correctamente');
+            }
+            return response.json();
+          })
+          .catch(error => console.error('Error:', error));
+        });
+
       tr.appendChild(button1);
       tr.appendChild(button2);
       table.appendChild(tr);
