@@ -44,13 +44,15 @@ function displayProducts(products) {
 
           const inputs = row.querySelectorAll('input');
 
+          console.log(inputs);
+
           const product = {
-            name: inputs[1].value,
-            price: inputs[2].value,
-            last_price: inputs[3].value,
-            image: inputs[4].value,
-            type: inputs[5].value,
-            promo: inputs[6].value,
+            name: inputs[0].value,
+            price: inputs[1].value,
+            last_price: inputs[2].value,
+            image: inputs[3].value,
+            type: inputs[4].value,
+            promo: inputs[5].value,
             id: ID
           };
 

@@ -113,13 +113,18 @@ class DAO{
 
         $final = [];
 
+       
+
         while ($row = $result->fetch_assoc()) {
             
+            //var_dump($row['productos']);
             $products = self::$products;
 
-            $price = $products[$row['productos']-1]->getPrice();
-
-            $final[] = ['product' =>  self::$products[$row['productos']-1], 'cuantity' => $row['cantidad'] , 'price' => $price];
+            foreach ($products as $product) {
+                if ($product->getID() == $row['productos']) {
+                    $final[] = ['product' => $product, 'cuantity' => $row['cantidad'], 'price' => $product->getPrice()];
+                }
+            }
         }
         
         return $final;
